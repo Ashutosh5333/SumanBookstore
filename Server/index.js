@@ -2,6 +2,7 @@ const express = require("express");
 const { connection } = require("./config/db");
 const cors = require("cors");
 const { UserRouter } = require("./routes/user.route");
+const { BookRouter } = require("./routes/Book.route");
 
 
 const app = express();
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 
 app.use(UserRouter);
+app.use(BookRouter)
 
 
 app.listen(8000, async (req, res) => {
