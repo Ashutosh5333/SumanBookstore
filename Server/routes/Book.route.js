@@ -6,11 +6,6 @@ const BookRouter = express.Router();
 BookRouter.get("/allbooks", async (req, res) => {
 
   try {
-    // const page = parseInt(req.query.page) || 1;
-    // const limit = parseInt(req.query.limit) || 10;
-    // const skip = (page - 1) * limit;
-
-    // const newdata = await BookModel.find().skip(skip).limit(limit);
     const newdata = await BookModel.find()
     res.json(newdata);
   } catch (err) {
@@ -18,17 +13,18 @@ BookRouter.get("/allbooks", async (req, res) => {
   }
 });
 
-BookRouter.get("/books", Authenticate, async (req, res) => {
-  const userId = req.body.userId;
+// ----------  Single books detail
+
+BookRouter.get("/allbooks/:bookid", async (req, res) => {
+  const bookid = req.params.bookid;
   try {
-    const AllBooks = await BookModel.find({
-      userId: userId,
-    }).populate("bookedby", ["name", "email"]);
-    res.send(AllBooks);
+    const newdata = await BookModel.findOne({_id:bookid})
+    res.json(newdata);
   } catch (err) {
-    res.send(err);
+    console.log(err);
   }
 });
+
 
 
 BookRouter.post("/book/create",  async (req, res) => {
