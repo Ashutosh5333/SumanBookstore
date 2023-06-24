@@ -13,6 +13,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { Signuppost } from "../Redux/AuthReducer/Action";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -22,6 +24,7 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const toast = useToast();
+  const dispatch = useDispatch()
 
   const [post, SetPost] = useState({
     email: "",
@@ -39,8 +42,27 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
+
     if (  post.email !== "" && post.name !== "" &&  post.password !== "" ) {
-     
+      setLoading(true)
+      dispatch(Signuppost(post))
+      .then((res) =>{
+        setLoading(false)
+        if(res.type ==="SIGNUPUSERSUCESS" && res.payload.data !== "user is already present" ){
+         toast({
+           position: "top",
+           colorScheme: "green",
+           status: "success",
+           title: "user created Account Sucessfully",
+           duration: 3000,
+         });
+         navigate("/login")
+         setLoading(false)
+       }
+      }).catch((err) =>{
+       console.log(err)
+      })
+
        
     } else {
       if (post.email === "") {

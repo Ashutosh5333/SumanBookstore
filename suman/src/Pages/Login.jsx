@@ -5,7 +5,8 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { Loginpost } from './../Redux/AuthReducer/Action';
 
 
 const Login = () => {
@@ -15,6 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const toast = useToast();
+  const dispatch = useDispatch()
 
 
   const [post, SetPost] = useState({
@@ -35,6 +37,46 @@ const Login = () => {
     if (post.email !== ""  && post.password !== "") {
       setLoading(true)
 
+      dispatch(Loginpost(post))
+      .then((res) =>{ 
+    
+         if(res.type === "LOGINUSERSUCESS" ){
+         if (res.payload.msg !== "login Sucessfully") {
+          toast({
+            position: "top",
+            colorScheme: "red",
+            status: "error",
+            title: res.payload.msg,
+          });
+          setLoading(false)
+        }else{
+          toast({
+            position: "top",
+            colorScheme: "green",
+            status: "success",
+            title: "Logged In Sucessfully",
+          })
+          localStorage.setItem("usertoken",JSON.stringify(res.payload.token))
+          localStorage.setItem("loggeduser", JSON.stringify(res.payload.data))
+          navigate("/")
+          setLoading(false)
+         }
+      }
+      else{
+        toast({
+          position: "top",
+          colorScheme: "red",
+          status: "error",
+          title: "Email id is Not registered",
+        });
+        setLoading(false)
+      }
+         
+      }).catch((err) =>{
+        console.log(err)
+        setLoading(false)
+      })
+   
 
  } 
    if (post.email === "") {
