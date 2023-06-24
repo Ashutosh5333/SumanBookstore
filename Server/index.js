@@ -3,6 +3,8 @@ const { connection } = require("./config/db");
 const cors = require("cors");
 const { UserRouter } = require("./routes/user.route");
 const { BookRouter } = require("./routes/Book.route");
+const { Authenticate } = require("./middleware/Authenticate");
+const { UserBookedRouter } = require("./routes/Userbooked.route");
 
 
 const app = express();
@@ -21,6 +23,8 @@ app.get("/", (req, res) => {
 
 app.use(UserRouter);
 app.use(BookRouter)
+app.use(Authenticate)
+app.use(UserBookedRouter)
 
 
 app.listen(8000, async (req, res) => {

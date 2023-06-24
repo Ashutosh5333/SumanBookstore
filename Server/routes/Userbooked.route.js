@@ -6,8 +6,41 @@ const { UserBookedModel } = require("../models/UserBooked.model");
 const UserBookedRouter = express.Router();
 
 
+UserBookedRouter.get("/mycart",Authenticate, async (req, res) => {
+  const userId = req.body.userId;
+  try {
+    const MYCart = await UserBookedModel.find({
+      userId: userId,
+    }).populate("bookedby", ["name", "email"]);
+    res.send(MYCart);
+  } catch (err) {
+    res.send(err);
+  }
+});
 
-UserBookedRouter.patch("/book/edit/:prodId", Authenticate, async (req, res) => {
+
+
+
+
+UserBookedRouter.post("/cart", Authenticate, async (req, res) => {
+  const payload = req.body;
+  const userId = req.body.userId;
+  try {
+    const CartAdded = await UserBookedModel.create({
+      ...payload,
+      bookedby: userId,
+    });
+    await CartAdded.save();
+    res.send({ msg: "Cart Added Succesfully" });
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+});
+
+
+
+UserBookedRouter.patch("/cart/edit/:prodId", Authenticate, async (req, res) => {
     const prodId = req.params.prodId;
     const userId = req.body.userId;
     const payload = req.body;
@@ -30,7 +63,7 @@ UserBookedRouter.patch("/book/edit/:prodId", Authenticate, async (req, res) => {
   
   // ------------- Delete req ------------ //
   
-  UserBookedRouter.delete("/book/delete/:prodId", Authenticate, async (req, res) => {
+  UserBookedRouter.delete("/cart/delete/:prodId", Authenticate, async (req, res) => {
     const prodId = req.params.prodId;
     const userId = req.body.userId;
   
@@ -50,4 +83,4 @@ UserBookedRouter.patch("/book/edit/:prodId", Authenticate, async (req, res) => {
   
   
   
-  
+  module.exports={UserBookedRouter}
