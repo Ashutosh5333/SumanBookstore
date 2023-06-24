@@ -4,13 +4,14 @@ const { Authenticate } = require("../middleware/Authenticate");
 const BookRouter = express.Router();
 
 BookRouter.get("/allbooks", async (req, res) => {
-  let { sortBy } = req.query;
-  try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
-    const skip = (page - 1) * limit;
 
-    const newdata = await BookModel.find().skip(skip).limit(limit);
+  try {
+    // const page = parseInt(req.query.page) || 1;
+    // const limit = parseInt(req.query.limit) || 10;
+    // const skip = (page - 1) * limit;
+
+    // const newdata = await BookModel.find().skip(skip).limit(limit);
+    const newdata = await BookModel.find()
     res.json(newdata);
   } catch (err) {
     console.log(err);
