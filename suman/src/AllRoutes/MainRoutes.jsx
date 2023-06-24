@@ -3,10 +3,9 @@ import { Routes, Route } from "react-router-dom";
 
 import Signup from "./../Pages/Signup";
 import Home from './../Pages/Home';
-import Userprofile from './../Pages/Userprofile';
-import Bookdetails from './../Pages/Bookdetails';
 import Dashboard from './../Pages/Dashboard';
 import Login from './../Pages/Login';
+import { BookDetail } from "../Components/BookDetail";
 
 
 const MainRoutes = () => {
@@ -27,16 +26,11 @@ const MainRoutes = () => {
         <Route
           path="/book/:id"
           element={
-              <Bookdetails />
+              <BookDetail />
           }
         />
 
-        <Route
-          path="/userprofile"
-          element={
-              <Userprofile />
-          }
-        />
+        
 
        
       </Routes>

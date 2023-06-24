@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const dispatch = useDispatch();
   const Books = useSelector((store) => store.AppReducer.Booksdata);
-      console.log("data", Books )
+      // console.log("data", Books )
 
   useEffect(() => {
     dispatch(GetAllBooksData);
@@ -64,7 +64,9 @@ const Dashboard = () => {
 
     <Flex justifyContent={"space-between"} gap="5" mt="5">
 
+     <Link to={`/book/${el._id}`}>
     <Button color="green"> View </Button>
+     </Link>
 
     <Button color="skyblue" bg="black" > Add To Cart </Button>
     </Flex>

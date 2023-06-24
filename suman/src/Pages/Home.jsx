@@ -1,16 +1,15 @@
 import React from 'react'
 import { Box, Input, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
-import { Text , Flex,Image, Card } from '@chakra-ui/react';
+import { Text , Flex,Image } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react';
 
-import {Link, Navigate,useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import Dashboard from './Dashboard';
 
 
 
 const Home = () => {
-  const navigate = useNavigate()
- const { isOpen, onOpen, onClose } = useDisclosure();   
+
  const SmallScreen = useBreakpointValue({ base: true, md: false, lg: false });
  
 
