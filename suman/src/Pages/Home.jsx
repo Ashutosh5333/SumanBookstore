@@ -4,6 +4,7 @@ import { Text , Flex,Image, Card } from '@chakra-ui/react';
 import { Heading } from '@chakra-ui/react';
 
 import {Link, Navigate,useNavigate} from "react-router-dom"
+import Dashboard from './Dashboard';
 
 
 
@@ -68,7 +69,7 @@ const Home = () => {
          <Text     color="#220f7a" fontWeight={"700"} p="5"> Available Books </Text>
           <Box >
               
-                All Books
+                <Dashboard/>
           </Box>
        </Box>
           
