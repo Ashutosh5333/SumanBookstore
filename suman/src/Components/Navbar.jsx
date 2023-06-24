@@ -12,6 +12,9 @@ const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
   
 
+    const loggeddata = JSON.parse(localStorage.getItem("loggeduser"))
+   
+
      
   return (
     <>
@@ -22,7 +25,7 @@ const Navbar = () => {
             <IconButton color='black' size='md' bg='white' icon={isOpen ? <CloseIcon /> : <HamburgerIcon fontSize='30px'/>} aria-label='Open Menu' display={{ md: 'none' }} onClick={isOpen ? onClose : onOpen}/>
               
             <Flex  width={{base : "20%", md :'13%', lg : '10%'}} justifyContent={'center'} >
-             <Link >
+             <Link to="/" >
                 <GiBookmarklet fontSize={"3rem"}/> 
               </Link>
             </Flex>
@@ -40,17 +43,20 @@ const Navbar = () => {
                </Flex>
 
                <Flex width={{base : "", md  : '25%', lg :'15%'}} justifyContent='space-around' fontSize='25px'>
-               
-              
-               <Tooltip bg='#CBD5E0' color='black' label={ "Logout"   } ><Link ><Text ><BiLogOut/></Text></Link></Tooltip>
-               
+               {
+                loggeddata ? 
+               <Tooltip bg='#CBD5E0' color='black' label={loggeddata? "Logout" :"Login"  } ><Link ><Text ><BiLogOut/></Text></Link></Tooltip>
+                :
                <Tooltip bg='#CBD5E0' color='black' label={ "Login" } ><Link to={ "/login"  } ><Text ><BiLogIn/></Text></Link></Tooltip>
+               }
+              
+               
               
 
               
               <Tooltip bg='#CBD5E0' color='black'
-               label={"Profile" }  >
-              <Link to="/userprofile" ><Text ><FaUserCircle/></Text></Link></Tooltip>
+               label={loggeddata ? loggeddata.userName :"Profile" } >
+              <Link  ><Text ><FaUserCircle/></Text></Link></Tooltip>
               </Flex>
               </Flex>
           </Flex> 
