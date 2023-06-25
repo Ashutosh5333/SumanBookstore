@@ -13,8 +13,7 @@ import {GiBookmarklet} from "react-icons/gi"
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-   const navigate = useNavigate()
-
+    const navigate = useNavigate()
     const loggeddata = JSON.parse(localStorage.getItem("loggeduser"))
    
      const handleLog =() =>{

@@ -12,6 +12,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 import { Deletecartdata, GetCartdata } from "../Redux/AppReducer/Action";
 
@@ -94,13 +95,15 @@ const Cart = () => {
                         <Button  color="#fff"
                         bg="black" onClick={() =>handledeleteCart(el._id)}> Delete </Button>
                      
-
+                     <Link to="/checkout">
                       <Button
                         color="#fff"
                         bg="pink.800"
                       >
                        CheckOut
                       </Button>
+                     </Link>
+
                     </Flex>
 
                   </CardBody>
