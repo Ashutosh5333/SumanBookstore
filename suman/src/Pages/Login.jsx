@@ -1,7 +1,7 @@
 import React, {  useState } from "react";
 import {
   Box,  Button, Card,CardBody, FormControl,
-  FormLabel,FormErrorMessage, FormHelperText,  Input,Image, Text,  VStack,  useToast,
+  FormLabel,FormErrorMessage, FormHelperText,  Input, Text,  VStack,  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";

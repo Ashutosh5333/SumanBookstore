@@ -2,18 +2,17 @@ import React,{useState} from "react";
 import {
   Box,
   Input,
-  useBreakpointValue
 } from "@chakra-ui/react";
 import { Text, Flex, Image } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
-
-import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 
 const Home = () => {
-  const [searchbook , SetserachBooks] = useState()
-  const SmallScreen = useBreakpointValue({ base: true, md: false, lg: false });
+  const [searchbook , SetSearchBooks] = useState(" ")
+  const loggeddata = JSON.parse(localStorage.getItem("loggeduser"))
 
+
+  
   return (
     <>
       <Flex
@@ -49,24 +48,25 @@ const Home = () => {
           color="#050452"
           fontWeight={"600"}
         >
-          <span style={{ fontSize: "4rem", color: "red" }}>H</span>ello{" "}
+          <span style={{ fontSize: "4rem", color: "skyblue" }}>H</span>ello{" "}
+           {loggeddata?.userName}
         </Text>
 
         <Heading textAlign={{ base: "start", lg: "center" }}>
           Let's Find Your Books
         </Heading>
 
-{/*       
-          <Box w="50vw">
+      
+          <Box w="50vw" m="auto">
             <Input
               borderRadius="10px"
               border="0px"
               placeholder="Search Books"
-              onChange={(e)=> SetserachBooks(e.target.value)}
+             onChange={(e) => SetSearchBooks(e.target.value)}
               padding="5px"
             />
           </Box>
-        */}
+       
 
         <Box h="auto" mt="10">
           <Text color="#220f7a" fontWeight={"700"} p="5">

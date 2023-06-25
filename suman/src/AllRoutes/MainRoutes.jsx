@@ -9,6 +9,7 @@ import { BookDetail } from "../Components/BookDetail";
 import Cart from "./../Components/Cart";
 import { CheckOut } from "../Pages/CheckOut";
 import Privateroute from './../PrivateRoutes/Privateroute';
+import Payment from "../Pages/Payment/Payment";
 
 const MainRoutes = () => {
   return (
@@ -34,6 +35,9 @@ const MainRoutes = () => {
         } />
 
         <Route path="/checkout" element={<CheckOut />} />
+        
+        <Route path="/payment" element={<Payment />} />
+
       </Routes>
     </>
   );

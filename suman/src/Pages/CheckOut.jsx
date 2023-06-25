@@ -1,7 +1,7 @@
 import { Box, Button, Divider, Flex,FormControl,FormLabel,Image,Input,Select,Text, useToast } from "@chakra-ui/react";
 import { useState ,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate,useNavigate } from "react-router-dom";
 import { GetCartdata } from "../Redux/AppReducer/Action";
 
 const InitalFormData = {
@@ -30,14 +30,15 @@ export const CheckOut = () => {
     }
     
      const payment = () =>{
+     
            toast({
             position: "top",
             colorScheme: "green",
             status: "success",
             title: "Payment Successfull",
+            // duration:3000,
           })
-        //   navigate("/")
-        Navigate("/")
+          
      }
 
 
@@ -158,10 +159,9 @@ export const CheckOut = () => {
           </Flex>
 
           <Box width={{base :'15%', md :'10%', lg :'5%'}} m='auto' mt={{base :'10px', md :'30px'}} mb='50px'>
-          <Link ><Button colorScheme='black' color='white' bg='black' size={{base : 'sm',md: 'md'}}
+          <Link to="/payment" ><Button colorScheme='black' color='white' bg='black' size={{base : 'sm',md: 'md'}}
            isDisabled={FormData.Fname === '' || FormData.Lname === '' || FormData.address === '' || FormData.country == '' || FormData.phone === ''}
-           onClick={payment}
-           >Payment</Button></Link>
+           > Confrim Payment</Button></Link>
           
           </Box>
     

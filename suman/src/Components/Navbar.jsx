@@ -1,9 +1,8 @@
 import React from 'react'
-import { useState } from 'react';
 import {
   Drawer,
   DrawerBody,  DrawerHeader,  DrawerOverlay,  DrawerContent} from "@chakra-ui/react";
-import { Box, Card ,Flex,Text, Input, IconButton, Tooltip, useDisclosure, Stack  } from '@chakra-ui/react'
+import { Box, Card ,Flex,Text, Input, IconButton, Tooltip, useDisclosure  } from '@chakra-ui/react'
 import {Link, useNavigate} from "react-router-dom"
 import { HamburgerIcon, CloseIcon} from '@chakra-ui/icons';
 import {FaUserCircle} from "react-icons/fa"
@@ -12,6 +11,7 @@ import {BiLogIn,BiLogOut} from "react-icons/bi"
 import {GiBookmarklet} from "react-icons/gi"
 
 const Navbar = () => {
+
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate = useNavigate()
     const loggeddata = JSON.parse(localStorage.getItem("loggeduser"))

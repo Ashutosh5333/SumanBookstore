@@ -7,64 +7,53 @@ import {
   SimpleGrid,
   Flex,
   Stack,
-  Toast,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState,useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { ADDCart, GetAllBooksData } from "../Redux/AppReducer/Action";
+import { GetAllBooksData } from "../Redux/AppReducer/Action";
+import DashboardSkelton from "./DashboardSkelton";
 
-const Dashboard = () => {
-   const toast = useToast()
+const Dashboard = ({searchbook}) => {
   const dispatch = useDispatch();
   const Books = useSelector((store) => store.AppReducer.Booksdata);
-  const [loading, setLoading] = useState(false);
+ 
 
   useEffect(() => {
     dispatch(GetAllBooksData);
   }, []);
 
-  const handleAddTocart = (image,author,summary,price,title) => {
-      const payload ={
-         image,author,summary,price,title
-      }
-      // setLoading(true)
-       dispatch(ADDCart(payload))
-       .then((res) =>{
-         console.log(res)
-           if(res.payload.msg === "Cart Added Succesfully" ){
-            toast({
-              position: "top",
-              colorScheme: "green",
-              status: "success",
-              title: res.payload.msg,
-            })
-            // setLoading(false)
-           }
-           else{
-            toast({
-              position: "top",
-              colorScheme: "red",
-              status: "error",
-              title: res.payload.msg,
-            })
-            // setLoading(false)
-           }
-       })
-       .catch((err) =>{
-         console.log(err)
-       })
-  };
+ 
 
   return (
     <>
       <Box w="90vw" m="auto" mb="20">
         <SimpleGrid columns={[1, 2, 3]} spacing={4}>
-          {Books.length > 0 &&
-            Books.map((el) => {
+          {
+            
+            Books.length > 0  ?
+
+
+            Books.filter((value) => {
+                if (searchbook == "") {
+                  return value;
+                } else if (
+                  value.title.toLowerCase().includes(
+                    searchbook.toLowerCase()
+                  )
+                ) {
+                  return value;
+                } else if (
+                  value.author.toLowerCase().includes(searchbook.toLowerCase())
+                ) {
+                  return value;
+                }
+              })
+            
+            .map((el) => {
               return (
                 <Card key={el._id}>
                   <CardBody>
@@ -109,7 +98,11 @@ const Dashboard = () => {
                   </CardBody>
                 </Card>
               );
-            })}
+            })
+              : <DashboardSkelton/>
+            
+            
+            }
         </SimpleGrid>
       </Box>
     </>
