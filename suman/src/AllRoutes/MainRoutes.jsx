@@ -8,6 +8,7 @@ import Login from "./../Pages/Login";
 import { BookDetail } from "../Components/BookDetail";
 import Cart from "./../Components/Cart";
 import { CheckOut } from "../Pages/CheckOut";
+import Privateroute from './../PrivateRoutes/Privateroute';
 
 const MainRoutes = () => {
   return (
@@ -19,9 +20,18 @@ const MainRoutes = () => {
 
         <Route path="/book" element={<Dashboard />} />
 
-        <Route path="/book/:id" element={<BookDetail />} />
+        <Route path="/book/:id" element={
+        <Privateroute>
+        <BookDetail />
+        </Privateroute>
+        } />
 
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={
+           <Privateroute>
+         <Cart />
+           </Privateroute>
+
+        } />
 
         <Route path="/checkout" element={<CheckOut />} />
       </Routes>

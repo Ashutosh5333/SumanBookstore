@@ -34,9 +34,10 @@ export const BookDetail = () => {
         const payload ={
            image,author,summary,price,title
         }
-        setLoading(true)
+    
          dispatch(ADDCart(payload))
          .then((res) =>{
+           console.log(res)
              if(res.payload.msg === "Cart Added Succesfully" ){
               toast({
                 position: "top",
@@ -44,7 +45,7 @@ export const BookDetail = () => {
                 status: "success",
                 title: "Added To Cart",
               })
-              setLoading(false)
+            
              }
          })
          .catch((err) =>{

@@ -31,17 +31,27 @@ const Dashboard = () => {
       const payload ={
          image,author,summary,price,title
       }
-      setLoading(true)
+      // setLoading(true)
        dispatch(ADDCart(payload))
        .then((res) =>{
+         console.log(res)
            if(res.payload.msg === "Cart Added Succesfully" ){
             toast({
               position: "top",
               colorScheme: "green",
               status: "success",
-              title: "Added To Cart",
+              title: res.payload.msg,
             })
-            setLoading(false)
+            // setLoading(false)
+           }
+           else{
+            toast({
+              position: "top",
+              colorScheme: "red",
+              status: "error",
+              title: res.payload.msg,
+            })
+            // setLoading(false)
            }
        })
        .catch((err) =>{
@@ -95,24 +105,6 @@ const Dashboard = () => {
                         <Button color="green"> View </Button>
                       </Link>
 
-                      <Button
-                        color="skyblue"
-                        bg="black"
-                        isLoading={loading}
-                        onClick={() =>
-                          handleAddTocart(
-                         
-                            el.image,
-                            el.author,
-                            el.summary,
-                            el.price,
-                            el.title
-                          )
-                        }
-                      >
-                        {" "}
-                        Add To Cart{" "}
-                      </Button>
                     </Flex>
                   </CardBody>
                 </Card>

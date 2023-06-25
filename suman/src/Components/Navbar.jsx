@@ -51,9 +51,9 @@ const Navbar = () => {
                <Flex width={{base : "", md  : '25%', lg :'15%'}} justifyContent='space-around' fontSize='25px'>
                {
                 loggeddata ? 
-               <Tooltip bg='#CBD5E0' color='black' label={loggeddata? "Logout" :"Login"  } ><Link ><Text ><BiLogOut/></Text></Link></Tooltip>
+               <Tooltip bg='#CBD5E0' color='black' label={loggeddata? "Logout" :"Login"  } ><Link ><Text onClick={handleLog}><BiLogOut/></Text></Link></Tooltip>
                 :
-               <Tooltip bg='#CBD5E0' color='black' label={ "Login" } ><Link to={ "/login"  } ><Text ><BiLogIn/></Text></Link></Tooltip>
+               <Tooltip bg='#CBD5E0' color='black' label={ "Login" } ><Link to={ "/login"  } ><Text  ><BiLogIn/></Text></Link></Tooltip>
                }
               
                <Tooltip bg='#CBD5E0' color='black' label='Cart'><Link to='/cart'><Text><BsCartCheck/></Text></Link></Tooltip>
