@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+ ## DeskTop view
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+ ### **<div align="start"> Signup Page  </div>**  
 
-In the project directory, you can run:
+![Signup](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/62078754-3e71-4f29-b4f6-ddace62607eb)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+ ### **<div align="start"> Login Page  </div>**  
+![Loginpage](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/6e42b4fc-5eb8-49ed-bf31-30fd18037328)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ ### **<div align="start"> Dashboard  Page </div>**  
+ 
+![Homeserach](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/78e498fb-278a-4d1a-a126-65fce3543455)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ ### **<div align="start"> Books List </div>**  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![book](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/54a353dc-04fb-4848-9d00-bfb7beae8e35)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ ### **<div align="start"> Book details </div>**  
 
-### Code Splitting
+![Singlepage](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/37aed757-bde7-4e5e-ab05-0e51d8699ab5)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+ ### **<div align="start"> Cart page </div>**  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![cartpage](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/47acabf3-f9b0-4151-8f2e-b0c71f48d881)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ ### **<div align="start">Shippnig form </div>**  
+![Shiping form](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/ae42c8cd-534a-401d-ad37-d948f5356ed0)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+ ### **<div align="start">Payment Confirmed </div>**  
+ 
+![paymentconfrim](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/2087f906-e618-49a5-8370-8fc936814171)
+
+
+
+
+## Mobileview 
+
+
+
+ ### **<div align="start"> Signup Page  </div>**  
+
+
+![mobilesingup](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/efbf7349-d7a7-491b-97a7-e43e75b555a3)
+
+
+ ### **<div align="start"> Login Page  </div>**  
+
+
+![loginmobile](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/d3f7a2bf-ddf8-4fe4-8d34-52329f48b374)
+
+
+ ### **<div align="start"> Dashboard  Page </div>**  
+
+
+
+![mobileserach](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/0a99f825-6bd4-40ed-bd5d-4386739d49cb)
+
+
+ ### **<div align="start"> Books List </div>**  
+ 
+![mobilehome](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/91ec7a43-c0ba-4fcc-8375-627f5dea78b4)
+
+
+
+ ### **<div align="start"> Book details </div>**  
+
+
+
+![mobilesinglepage](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/2b9693c5-0bcb-4b1e-b00c-f90c9ba0da3b)
+
+
+ ### **<div align="start"> Cart page </div>**  
+
+
+![mobilecart](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/7a08630d-6a27-41e2-b92d-d51f1534eab1)
+
+
+
+ ### **<div align="start">Shippnig form </div>**  
+
+
+
+![mobileShipingform](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/2b480256-fa24-4e0b-ac2e-b63fcaa9dafe)
+
+
+ ### **<div align="start">Payment Confirmed </div>**  
+ 
+
+
+![mobilepayment](https://github.com/Ashutosh5333/SumanBookstore/assets/101393850/3f624553-e3eb-4187-922a-52b93085baa1)
+
+
+
+
+
+## Tech Stack 
+Front End
+- **React**
+- **Redux**
+- **JavaScript**
+- **HTML5**
+- **CSS3**
+- **Chakra UI**
+- **render.com**
+- **Node Package Manager**
+
+Backend
+- **Node.js**
+- **Mongoose**
+- **MongoDB**
+- **Express**
+
+
+
