@@ -7,22 +7,40 @@ import {
   SimpleGrid,
   Flex,
   Stack,
-  Toast} from "@chakra-ui/react";
+  useToast} from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { GetCartdata } from "../Redux/AppReducer/Action";
+
+import { Deletecartdata, GetCartdata } from "../Redux/AppReducer/Action";
 
 const Cart = () => {
+  const toast = useToast()
   const dispatch = useDispatch();
   const data = useSelector((store) => store.AppReducer.CartData);
   
-
   useEffect(() => {
     dispatch(GetCartdata);
   }, []);
+
+
+   const handledeleteCart = (_id) =>{
+        dispatch(Deletecartdata(_id))
+        .then((res) =>{
+        
+            toast({
+              position: "top",
+              colorScheme: "green",
+              status: "success",
+              title: "Delete To Cart",
+            })
+            dispatch(GetCartdata);
+        })
+        .catch((err) =>{
+           console.log(err)
+        })
+   }
 
 
   return (
@@ -72,10 +90,10 @@ const Cart = () => {
                     </Stack>
 
                     <Flex justifyContent={"space-between"} gap="5" mt="5">
-                      <Link to={`/book/${el._id}`}>
+                     
                         <Button  color="#fff"
-                        bg="black"> Delete </Button>
-                      </Link>
+                        bg="black" onClick={() =>handledeleteCart(el._id)}> Delete </Button>
+                     
 
                       <Button
                         color="#fff"

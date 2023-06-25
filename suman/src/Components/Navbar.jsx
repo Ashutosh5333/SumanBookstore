@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import { Box, Flex,Text, Input, IconButton, Tooltip, useDisclosure  } from '@chakra-ui/react'
+import {
+  Drawer,
+  DrawerBody,  DrawerHeader,  DrawerOverlay,  DrawerContent} from "@chakra-ui/react";
+import { Box, Card ,Flex,Text, Input, IconButton, Tooltip, useDisclosure, Stack  } from '@chakra-ui/react'
 import {Link, useNavigate} from "react-router-dom"
 import { HamburgerIcon, CloseIcon} from '@chakra-ui/icons';
 import {FaUserCircle} from "react-icons/fa"
@@ -10,10 +13,14 @@ import {GiBookmarklet} from "react-icons/gi"
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-  
+   const navigate = useNavigate()
 
     const loggeddata = JSON.parse(localStorage.getItem("loggeduser"))
    
+     const handleLog =() =>{
+          localStorage.clear()
+          navigate("/")
+     }
 
      
   return (
@@ -58,6 +65,45 @@ const Navbar = () => {
               </Flex>
               </Flex>
           </Flex> 
+
+          <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerHeader>  </DrawerHeader>
+              <DrawerBody>
+                <Card spacing={4}>
+                <Link to="/">
+                  <Text fontWeight={"600"} fontSize={"1.1rem"} color="gray" mt="5">
+                   Home page
+                  </Text>
+                   </Link>
+
+                   <Link to="/login">
+                  <Text fontWeight={"600"} fontSize={"1.1rem"} color="gray" mt="5">
+                   Login
+                  </Text>
+                   </Link>
+                 
+                 
+                   <Link to="/sign">
+                  <Text fontWeight={"600"} fontSize={"1.1rem"} color="gray" mt="5">
+                    Signup
+                  </Text>
+                  
+                  <Link to="/cart">
+                  <Text fontWeight={"600"} fontSize={"1.1rem"} color="gray" mt="5">
+                   Cart Page
+                  </Text>
+                   </Link>
+
+                   </Link>
+                  <Text   onClick={handleLog} fontWeight={"600"} fontSize={"1.1rem"} color="gray" mt="5" mb="5">
+                    Logout
+                  </Text>
+                </Card>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
 
         </Box>    
  

@@ -4,14 +4,12 @@ import {
   Image, Card,
   Text,
   Flex,
-  Heading,
-  useBreakpointValue,
   Button,
   useToast,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { GetSinglebookdetail } from "../Redux/AppReducer/Action";
+import { ADDCart, GetSinglebookdetail } from "../Redux/AppReducer/Action";
 import { Skelton } from './Skelton';
 
 export const BookDetail = () => {
@@ -32,6 +30,29 @@ export const BookDetail = () => {
             console.log(err);
           });
       }, [id]);
+      const handleAddTocart = (image,author,summary,price,title) => {
+        const payload ={
+           image,author,summary,price,title
+        }
+        setLoading(true)
+         dispatch(ADDCart(payload))
+         .then((res) =>{
+             if(res.payload.msg === "Cart Added Succesfully" ){
+              toast({
+                position: "top",
+                colorScheme: "green",
+                status: "success",
+                title: "Added To Cart",
+              })
+              setLoading(false)
+             }
+         })
+         .catch((err) =>{
+           console.log(err)
+         })
+    };
+
+    
 
   return (
     <>
@@ -49,7 +70,7 @@ export const BookDetail = () => {
              <Flex
                w="60%" m="auto"
              >
-               <Card m="auto">
+               <Card m="auto"  >
                  <Image
                    objectFit="cover"
                    boxSize="500px"
@@ -88,7 +109,24 @@ export const BookDetail = () => {
                
 
                <Box w="90%" m="auto" mt="10">
-                 <Button bg="black" color="#fff"> Add To Cart </Button>
+               <Button
+                        color="skyblue"
+                        bg="black"
+                        isLoading={loading}
+                        onClick={() =>
+                          handleAddTocart(
+                         
+                            single?.image,
+                            single?.author,
+                            single?.summary,
+                            single?.price,
+                            single?.title
+                          )
+                        }
+                      >
+                        {" "}
+                        Add To Cart{" "}
+                      </Button>
                </Box>
 
              </Flex>

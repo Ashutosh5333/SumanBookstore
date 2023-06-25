@@ -8,8 +8,9 @@ import {
   Flex,
   Stack,
   Toast,
+  useToast,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
@@ -17,8 +18,10 @@ import { Link } from "react-router-dom";
 import { ADDCart, GetAllBooksData } from "../Redux/AppReducer/Action";
 
 const Dashboard = () => {
+   const toast = useToast()
   const dispatch = useDispatch();
   const Books = useSelector((store) => store.AppReducer.Booksdata);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(GetAllBooksData);
@@ -28,16 +31,17 @@ const Dashboard = () => {
       const payload ={
          image,author,summary,price,title
       }
-     
+      setLoading(true)
        dispatch(ADDCart(payload))
        .then((res) =>{
            if(res.payload.msg === "Cart Added Succesfully" ){
-            Toast({
+            toast({
               position: "top",
               colorScheme: "green",
               status: "success",
               title: "Added To Cart",
             })
+            setLoading(false)
            }
        })
        .catch((err) =>{
@@ -94,6 +98,7 @@ const Dashboard = () => {
                       <Button
                         color="skyblue"
                         bg="black"
+                        isLoading={loading}
                         onClick={() =>
                           handleAddTocart(
                          
