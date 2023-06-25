@@ -6,6 +6,7 @@ import Home from './../Pages/Home';
 import Dashboard from './../Pages/Dashboard';
 import Login from './../Pages/Login';
 import { BookDetail } from "../Components/BookDetail";
+import Cart from './../Components/Cart';
 
 
 const MainRoutes = () => {
@@ -27,6 +28,13 @@ const MainRoutes = () => {
           path="/book/:id"
           element={
               <BookDetail />
+          }
+        />
+
+         <Route
+          path="/cart"
+          element={
+              <Cart />
           }
         />
 

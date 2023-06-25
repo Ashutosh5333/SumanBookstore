@@ -4,7 +4,7 @@ import { Box, Flex,Text, Input, IconButton, Tooltip, useDisclosure  } from '@cha
 import {Link, useNavigate} from "react-router-dom"
 import { HamburgerIcon, CloseIcon} from '@chakra-ui/icons';
 import {FaUserCircle} from "react-icons/fa"
-import {BsSearch} from "react-icons/bs"
+import {BsCartCheck, BsSearch} from "react-icons/bs"
 import {BiLogIn,BiLogOut} from "react-icons/bi"
 import {GiBookmarklet} from "react-icons/gi"
 
@@ -50,10 +50,8 @@ const Navbar = () => {
                <Tooltip bg='#CBD5E0' color='black' label={ "Login" } ><Link to={ "/login"  } ><Text ><BiLogIn/></Text></Link></Tooltip>
                }
               
-               
-              
-
-              
+               <Tooltip bg='#CBD5E0' color='black' label='Cart'><Link to='/cart'><Text><BsCartCheck/></Text></Link></Tooltip>
+                          
               <Tooltip bg='#CBD5E0' color='black'
                label={loggeddata ? loggeddata.userName :"Profile" } >
               <Link  ><Text ><FaUserCircle/></Text></Link></Tooltip>
